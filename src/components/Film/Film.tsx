@@ -1,65 +1,55 @@
-import React, { Component, FC } from 'react';
+import React, { Component, FC, useEffect } from 'react';
 import styles from './Film.module.css';
-import FilmItem from '../FilmItem/FilmItem';
 import axios, { AxiosResponse } from 'axios';
 import FilmItemResource from './FilmItemResource';
 import FilmStories from './Film.stories';
+import ReactDOM from 'react-dom';
+import { observer } from 'mobx-react-lite';
+import FilmObs from './FilmStore';
+import { Provider } from 'mobx-react';
+import store from './FilmStore';
+import Button from '../../common/components/button';
+import FilmItem from '../FilmItem/FilmItem';
 /**
  * Page containing films
  */
-type FilmProps = {
-  // using `interface` is also ok
-  title: string;
-};
-type FilmState = {
-  count: number; // like this
-  films: FilmItemResource[]
-};
 
+const GHIBLI_URL = `https://ghibliapi.herokuapp.com/films`;
 
-
-export default class Film extends Component<{}, FilmState> {
-  //State Handling of films
-  state: FilmState = {
-    // optional second annotation for better type inference
-    films: [],
-    count: 0
+/**
+ * 
+ * @returns Main Film page
+ */
+function FilmListItems() {
+  const addLikeFilm = (id: string) => {
+    store.addLikeFilm(
+      id
+    );
   };
-
-  componentDidMount() {
-    axios.get<FilmItemResource[]>(`https://ghibliapi.herokuapp.com/films`)
-      .then((res: AxiosResponse) => {
-        const films = res.data;
-        this.setState({
-          films: res.data
-        });
-      })
-  }
-  setNbLike = (e: React.MouseEvent, index: number) => {
-    let filmsCopy = [...this.state.films];
-    let tempIndex = this.state.films[index];
-    if (!tempIndex.nbLike) {
-      tempIndex.nbLike = 1;
-    } else {
-      tempIndex.nbLike ++;
-    }
-    filmsCopy[index] = tempIndex;
-    this.setState({
-      films: filmsCopy
-    });
- };
-  
-  render() {
-    return (
+  return (
     <>
     <p>FILMS</p>
-    {this.state.count}
-    {this.state.films.map((item: FilmItemResource, index) => (
-      <FilmItem key={item.id} film={item} likes={item.nbLike} handleClick={(e) => this.setNbLike(e, index)}/>  
-    ))}
-    
+     {store.films.map((film: FilmItemResource) => (
+       <FilmItem film={film} likes={film.nbLike} handleClick={() =>addLikeFilm(film.id)} />
+     ))}
     </>
-    );
-  }
+  );
 }
+const ObservedFilmListItems = observer(FilmListItems);
+function FilmList() {
+  const onLoad = () => {
+    store.load(
+      GHIBLI_URL
+    );
+  };
+  return (
+    <>
+      <h1>FILMS</h1>
+      <Button text="Load" handleClick={onLoad} />
+      <ObservedFilmListItems />
+    </>
+  );
+}
+export default FilmList;
+
 

@@ -19,3 +19,4 @@ const FilmItem: FC<FilmItemProps> = ({ film, likes, handleClick}) => (
 );
 
 export default FilmItem;
+

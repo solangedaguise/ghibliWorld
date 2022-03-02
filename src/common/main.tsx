@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import Film from "../components/Film/Film.lazy";
+import Film from "../components/Film/Film";
 import Home from "../components/Home/Home.lazy";
 
 const Main = () => {

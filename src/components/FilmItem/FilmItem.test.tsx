@@ -6,9 +6,9 @@ import FilmItemResource from '../Film/FilmItemResource';
 
 describe('<FilmItem />', () => {
   test('it should mount', () => {
-    render(<FilmItem film={new FilmItemResource()} likes={0} handleClick={function (event): void {
+    render(<FilmItem handleClick={function (event): void {
       throw new Error('Function not implemented.');
-    } } />);
+    } } film={new FilmItemResource} likes={0} />);
     
     const filmItem = screen.getByTestId('FilmItem');
 
