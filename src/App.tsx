@@ -1,10 +1,6 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Main from './common/main';
-import Film from './components/Film/Film';
-import Home from './components/Home/Home';
 
 function App() {
   return (

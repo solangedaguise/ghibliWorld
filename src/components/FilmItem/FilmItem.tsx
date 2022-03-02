@@ -12,7 +12,7 @@ interface FilmItemProps {
 
 const FilmItem: FC<FilmItemProps> = ({ film, likes, handleClick}) => (
   <div className={styles.FilmItem} data-testid="FilmItem">
-    {film.title} - {film.director}
+    <span>{film.title} - {film.director}</span>
     <button onClick={handleClick}>like</button>
     likes : {likes}
   </div>
