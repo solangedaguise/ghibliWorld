@@ -7,10 +7,8 @@ import Main from './common/main';
 function App() {
   return (
     <div className="App">
-      <header 
-      // className="App-header"
+      <header
       >
-       
       </header>
       <div>
         <ul>

@@ -1,13 +1,13 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import Film from './Film';
+import FilmList from './Film';
 
-describe('<Film />', () => {
+describe('<FilmList />', () => {
   test('it should mount', () => {
-    render(<Film />);
+    render(<FilmList />);
     
-    const film = screen.getByTestId('Film');
+    const film = screen.getByTestId('FilmMainTitle');
 
     expect(film).toBeInTheDocument();
   });

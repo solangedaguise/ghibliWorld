@@ -1,6 +1,12 @@
-import { action, makeAutoObservable, observable } from "mobx";
+import { makeAutoObservable } from "mobx";
 import FilmItemResource from "./FilmItemResource";
 
+/**
+ * Like a movie of the list
+ * @param films list of films of the page
+ * @param id id of the liked film
+ * @returns list of films with increment of the liked one
+ */
 const addLikeFilm = (films: FilmItemResource[], id: string): FilmItemResource[] => 
      {
        films.map((temp) => {
