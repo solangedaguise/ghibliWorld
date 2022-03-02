@@ -30,7 +30,7 @@ describe('<FilmItem />', () => {
     expect(filmItem).toBeInTheDocument();
 
     //Test if button exists
-    const button = screen.getByText("like");
+    const button = screen.getByTitle('Like');
     expect(button).toBeInTheDocument();
 
     expect(filmItem).toHaveTextContent("Castle in the Sky - Hayao Miyazaki");
