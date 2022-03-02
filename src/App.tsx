@@ -1,14 +1,16 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Link } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 import Main from './common/main';
+import Film from './components/Film/Film';
+import Home from './components/Home/Home';
 
 function App() {
   return (
     <div className="App">
-      <header
-      >
+      <header>
+       <h1>Welcome to Ghibli App !</h1>
       </header>
       <div>
         <ul>

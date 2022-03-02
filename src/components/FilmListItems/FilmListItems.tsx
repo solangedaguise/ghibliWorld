@@ -13,8 +13,12 @@ import FilmItem from "../FilmItem/FilmItem";
         id
       );
     };
+    const getMostLiked = () => {
+      return store.getMostLiked();
+    };
     return (
       <>
+      <p>Favorite movie : {getMostLiked()}</p>
        {store.films.map((film: FilmItemResource) => (
          <FilmItem film={film} likes={film.nbLike} handleClick={() =>addLikeFilm(film.id)} />
        ))}

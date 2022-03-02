@@ -8,6 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+    {/* TODO Add error boundary component */}
     <App />
   </BrowserRouter>
   </React.StrictMode>,

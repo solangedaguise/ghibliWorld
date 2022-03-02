@@ -8,7 +8,7 @@ import { FilmListItems } from '../FilmListItems/FilmListItems';
  * Page containing films
  */
 
-const GHIBLI_URL = `https://ghibliapi.herokuapp.com/films`;
+
 
 /**
  * Mobx observer for state handling on film list
@@ -18,16 +18,11 @@ const ObservedFilmListItems = observer(FilmListItems);
  * Class component for whole film list rendering
  */
 class FilmList extends Component<{}, {}> {
-  onLoad = () => {
-    store.load(
-      GHIBLI_URL
-    );
-  };
+
   render() {
     return (
     <>
       <h1 data-testid="FilmMainTitle">FILMS</h1>
-      <Button text="Load" handleClick={this.onLoad} />
       <ObservedFilmListItems />
     </>
   );

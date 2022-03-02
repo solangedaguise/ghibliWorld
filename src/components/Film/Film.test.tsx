@@ -8,7 +8,7 @@ describe('<FilmList />', () => {
     render(<FilmList />);
     
     const film = screen.getByTestId('FilmMainTitle');
-
     expect(film).toBeInTheDocument();
+
   });
 });
