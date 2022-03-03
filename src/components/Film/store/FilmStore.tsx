@@ -41,7 +41,7 @@ class Films {
     let temp = "No favorite movie";
     if (this.films.length !== 0) {
       const tempFilm = this.films.filter(el => el !== undefined).reduce((prev, current) => (+prev.nbLike > +current.nbLike) ? prev : current);
-      temp = tempFilm.title && tempFilm.nbLike != 0 ? tempFilm.title : temp;
+      temp = tempFilm.title && tempFilm.nbLike !== 0 ? tempFilm.title : temp;
     }
     return temp;
   }

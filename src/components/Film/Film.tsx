@@ -1,7 +1,5 @@
 
 import { observer } from 'mobx-react-lite';
-import store from './store/FilmStore';
-import Button from '../../common/components/button';
 import { Component } from 'react';
 import { FilmListItems } from '../FilmListItems/FilmListItems';
 /**

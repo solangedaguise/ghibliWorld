@@ -2,7 +2,6 @@ import FilmItemResource from "../Film/model/FilmItemResource";
 import store from "../Film/store/FilmStore";
 import FilmItem from "../FilmItem/FilmItem";
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import { Typography } from "@material-ui/core";
 
