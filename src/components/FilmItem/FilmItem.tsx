@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import FilmItemResource from '../Film/FilmItemResource';
+import FilmItemResource from '../Film/model/FilmItemResource';
 import styles from './FilmItem.module.css';
 import IconButton from '@material-ui/core/IconButton';
 import ThumbUp from '@material-ui/icons/ThumbUp';
@@ -8,15 +8,15 @@ import ThumbUp from '@material-ui/icons/ThumbUp';
  */
 interface FilmItemProps {
   film: FilmItemResource,
-  likes:number,
-  handleClick:(e:  React.MouseEvent<HTMLButtonElement>) => void;
+  likes: number,
+  handleClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const FilmItem: FC<FilmItemProps> = ({ film, likes, handleClick}) => (
+const FilmItem: FC<FilmItemProps> = ({ film, likes, handleClick }) => (
   <div className={styles.FilmItem} data-testid="FilmItem">
     <span>{film.title} - {film.director}</span>
     <IconButton onClick={handleClick} aria-label="Like" title="Like">
-          <ThumbUp fontSize="small" />
+      <ThumbUp fontSize="small" />
     </IconButton>
     likes : {likes}
   </div>

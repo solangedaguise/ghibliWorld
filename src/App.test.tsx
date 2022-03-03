@@ -5,6 +5,6 @@ import { BrowserRouter } from 'react-router-dom';
 
 test('renders Welcome page', () => {
   <BrowserRouter>
-  render(<App />);
+    render(<App />);
   </BrowserRouter>
 });

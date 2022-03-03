@@ -6,7 +6,7 @@ import FilmList from './Film';
 describe('<FilmList />', () => {
   test('it should mount', () => {
     render(<FilmList />);
-    
+
     const film = screen.getByTestId('FilmMainTitle');
     expect(film).toBeInTheDocument();
 

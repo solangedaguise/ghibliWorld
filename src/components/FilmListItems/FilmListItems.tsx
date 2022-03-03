@@ -1,5 +1,5 @@
-import FilmItemResource from "../Film/FilmItemResource";
-import store from "../Film/FilmStore";
+import FilmItemResource from "../Film/model/FilmItemResource";
+import store from "../Film/store/FilmStore";
 import FilmItem from "../FilmItem/FilmItem";
 
 /**
@@ -7,22 +7,22 @@ import FilmItem from "../FilmItem/FilmItem";
  * @returns Main Film page
  */
 
- export function FilmListItems() {
-    const addLikeFilm = (id: string) => {
-      store.addLikeFilm(
-        id
-      );
-    };
-    const getMostLiked = () => {
-      return store.getMostLiked();
-    };
-    return (
-      <>
-      <p>Favorite movie : {getMostLiked()}</p>
-       {store.films.map((film: FilmItemResource) => (
-         <FilmItem film={film} likes={film.nbLike} handleClick={() =>addLikeFilm(film.id)} />
-       ))}
-      </>
+export function FilmListItems() {
+  const addLikeFilm = (id: string) => {
+    store.addLikeFilm(
+      id
     );
-  }
-  
+  };
+  const getMostLiked = () => {
+    return store.getMostLiked();
+  };
+  return (
+    <>
+      <p data-testid="favoriteMovie">Favorite movie : {getMostLiked()}</p>
+      {store.films.map((film: FilmItemResource) => (
+        <FilmItem key={film.id} film={film} likes={film.nbLike} handleClick={() => addLikeFilm(film.id)} />
+      ))}
+    </>
+  );
+}
+

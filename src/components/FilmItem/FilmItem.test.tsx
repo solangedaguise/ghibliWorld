@@ -1,7 +1,7 @@
 import { getByTestId, getByText, render, screen, within } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import FilmItem from './FilmItem';
-import FilmItemResource from '../Film/FilmItemResource';
+import FilmItemResource from '../Film/model/FilmItemResource';
 
 const mockFilm: FilmItemResource = {
   id: '2baf70d1-42bb-4437-b551-e5fed5a87abe',
@@ -24,8 +24,8 @@ const mockFilm: FilmItemResource = {
 
 describe('<FilmItem />', () => {
   test('it render correctly', () => {
-    render(<FilmItem handleClick={() =>{} } film={mockFilm} likes={0} />);
-    
+    render(<FilmItem handleClick={() => { }} film={mockFilm} likes={0} />);
+
     const filmItem = screen.getByTestId('FilmItem');
     expect(filmItem).toBeInTheDocument();
 

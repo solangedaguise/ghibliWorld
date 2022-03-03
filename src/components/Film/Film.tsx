@@ -1,6 +1,6 @@
 
 import { observer } from 'mobx-react-lite';
-import store from './FilmStore';
+import store from './store/FilmStore';
 import Button from '../../common/components/button';
 import { Component } from 'react';
 import { FilmListItems } from '../FilmListItems/FilmListItems';
@@ -21,12 +21,12 @@ class FilmList extends Component<{}, {}> {
 
   render() {
     return (
-    <>
-      <h1 data-testid="FilmMainTitle">FILMS</h1>
-      <ObservedFilmListItems />
-    </>
-  );
-    }
+      <>
+        <h1 data-testid="FilmMainTitle">FILMS</h1>
+        <ObservedFilmListItems />
+      </>
+    );
+  }
 }
 export default FilmList;
 
