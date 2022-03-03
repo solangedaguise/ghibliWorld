@@ -1,6 +1,10 @@
 import FilmItemResource from "../Film/model/FilmItemResource";
 import store from "../Film/store/FilmStore";
 import FilmItem from "../FilmItem/FilmItem";
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import { Typography } from "@material-ui/core";
 
 /**
  * functional component : list of films that will be tracked by mobx
@@ -18,10 +22,18 @@ export function FilmListItems() {
   };
   return (
     <>
-      <p data-testid="favoriteMovie">Favorite movie : {getMostLiked()}</p>
-      {store.films.map((film: FilmItemResource) => (
-        <FilmItem key={film.id} film={film} likes={film.nbLike} handleClick={() => addLikeFilm(film.id)} />
-      ))}
+      <Card data-testid="favoriteMovie">
+        <CardContent>
+          <Typography variant="h5" component="h2">
+            Favorite movie : {getMostLiked()}
+          </Typography>
+        </CardContent>
+      </Card>
+      {
+        store.films.map((film: FilmItemResource) => (
+          <FilmItem key={film.id} film={film} likes={film.nbLike} handleClick={() => addLikeFilm(film.id)} />
+        ))
+      }
     </>
   );
 }

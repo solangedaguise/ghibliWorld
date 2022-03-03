@@ -1,4 +1,4 @@
-import { getByTestId, getByText, render, screen, within } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import FilmItem from './FilmItem';
 import FilmItemResource from '../Film/model/FilmItemResource';
@@ -21,19 +21,27 @@ const mockFilm: FilmItemResource = {
   url: '',
   nbLike: 0
 }
-
 describe('<FilmItem />', () => {
   test('it render correctly', () => {
     render(<FilmItem handleClick={() => { }} film={mockFilm} likes={0} />);
-
     const filmItem = screen.getByTestId('FilmItem');
+
+    //should have the item
     expect(filmItem).toBeInTheDocument();
 
-    //Test if button exists
+    //should have the like button
     const button = screen.getByTitle('Like');
     expect(button).toBeInTheDocument();
 
+    // should have the Film and director name
     expect(filmItem).toHaveTextContent("Castle in the Sky - Hayao Miyazaki");
+
+    // should have the like number
     expect(filmItem).toHaveTextContent("likes : 0");
+
+    // should increment the like number
+    // fireEvent.click(button);
+    // expect(filmItem).toHaveTextContent("likes : 1");
+
   });
 });

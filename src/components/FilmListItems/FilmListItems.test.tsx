@@ -5,7 +5,7 @@ import { render, screen } from '@testing-library/react';
 import store from "../Film/store/FilmStore";
 
 const mockFn = jest.fn()
-//TODO Find how to mock Store mobx
+//TODO Find how to mock Store mobx inside component test render
 jest.mock('../Film/store/FilmStore.tsx', () => {
   // return a constructor
   return jest.fn().mockImplementation(() => {
